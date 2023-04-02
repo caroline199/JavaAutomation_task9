@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>JavaAutomation_task9</artifactId>
+    <groupId>src.test</groupId>
+    <artifactId>AllureReport</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -92,6 +92,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>AllureReport.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -100,6 +105,11 @@
                 <configuration>
                     <reportVersion>2.13.6</reportVersion>
                     <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/allure-results</reportDirectory>
+                    <systemPropertyVariables>
+                        <propertyName>propertyValue</propertyName>
+                        <allure.results.directory>target/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -108,6 +118,12 @@
                 <version>3.0.0-M4</version>
             </plugin>
         </plugins>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 
 </project>

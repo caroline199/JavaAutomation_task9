@@ -23,6 +23,7 @@ public class Filters {
             System.out.println("Still selected");
         }
         driver.quit();
+        logger.info("Second test is finished.");
     }
 
     @Test
@@ -46,5 +47,6 @@ public class Filters {
             System.out.println("Still selected");
         }
         driver.quit();
+        logger.info("First test is finished.");
     }
 }
